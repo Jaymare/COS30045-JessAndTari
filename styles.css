@@ -1,21 +1,34 @@
-.line {
-  fill: none;
-  stroke: slategrey;
-  stroke-width: 0.5;
+#s1 {
+  background-color: rgb(210, 238, 99);
+  width: 80%;
+  height: 200px;
+  margin: 0 auto;
+  margin-bottom: 40px;
 }
 
-.halfMilMark {
-  stroke: red;
-  border-style: dashed;
-  stroke-dasharray: 2;
+#s2 {
+  background-color: rgb(237, 137, 229);
+  width: 80%;
+  height: 200px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Creates two equal-width columns (1fr is a fractional unit) */
+  grid-gap: 20px;
 }
 
-.halfMilLabel {
-  fill: red;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+#s3 {
+  background-color: rgb(154, 118, 212);
+  width: 80%;
+  height: 200px;
+  margin: 0 auto;
+  margin-bottom: 40px;
 }
 
-.area {
-  fill: teal;
-  stroke: none;
+#s4 {
+  background-color: rgb(84, 143, 225);
+  width: 80%;
+  height: 200px;
+  margin: 0 auto;
+  margin-bottom: 40px;
 }
