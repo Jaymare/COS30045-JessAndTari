@@ -1,0 +1,21 @@
+.line {
+  fill: none;
+  stroke: slategrey;
+  stroke-width: 0.5;
+}
+
+.halfMilMark {
+  stroke: red;
+  border-style: dashed;
+  stroke-dasharray: 2;
+}
+
+.halfMilLabel {
+  fill: red;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.area {
+  fill: teal;
+  stroke: none;
+}
