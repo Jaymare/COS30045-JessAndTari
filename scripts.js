@@ -56,7 +56,13 @@ function createVisualization4(data) {
 function createVisualization5(data) {
   dataset = data;
   console.log("Viz 5 successfully loaded:", data);
-  ("");
+  var svg = d3
+    .select("#my_dataviz")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 }
 
 window.onload = init;
