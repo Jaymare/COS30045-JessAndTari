@@ -22,8 +22,10 @@ function init() {
 // 2 Line and area chart of one of the metrics over time in different regions
 
 // Jess do:
-// 3 Dot and line chart with lots of metrics on the y axis, number on the x axis, and each country gets a coloured dot
-// 4 Heat map (one of the table ones with lots of little squares) maybe for Australian states over time by each metric
+// 3 Dot and line chart with lots of metrics on the y axis,
+// number on the x axis, and each country gets a coloured dot
+// 4 Heat map (one of the table ones with lots of little squares)
+// maybe for Australian states over time by each metric
 // 5 A streamgraph of a few metrics in each country over time
 
 // Viz 1
@@ -54,6 +56,32 @@ function createVisualization4(data) {
   ("");
 }
 
+// Viz 5 helper for data cleanup
+function longToWide(dataset, groupByKey, categoryKey, valueKey) {
+  var wideData = [];
+  var groupedData = {};
+
+  // Group data by year
+  dataset.forEach((row) => {
+    var key = row[groupByKey];
+    if (!groupedData[key]) {
+      groupedData[key] = [];
+    }
+    groupedData[key].push(row);
+  });
+
+  // Convert each group to wide format
+  Object.keys(groupedData).forEach((year) => {
+    var rowObject = { [groupByKey]: year };
+    groupedData[year].forEach((row) => {
+      rowObject[row[categoryKey]] = +row[valueKey];
+    });
+    wideData.push(rowObject);
+  });
+
+  return wideData;
+}
+
 // Viz 5
 function createVisualization5(data) {
   var margin = { top: 20, right: 30, bottom: 30, left: 60 },
@@ -68,14 +96,17 @@ function createVisualization5(data) {
       d.UNIT_MEASURE === "10P3HB",
   );
 
-  // Console log to test the filters
-  console.table(dataset, [
-    "REF_AREA",
-    "Measure",
-    "Reference area",
-    "TIME_PERIOD",
-  ]);
+  var wideData = longToWide(
+    dataset,
+    "TIME_PERIOD", // group by year
+    "REF_AREA", // regions become columns
+    "OBS_VALUE", // the values
+  );
 
+  // Test the transformation
+  console.log("Wide data:", wideData);
+
+  // Create the svg
   var svg = d3
     .select("#viz5")
     .append("svg")
@@ -84,19 +115,18 @@ function createVisualization5(data) {
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  // List of groups = header of the csv files
-  var keys = data.columns.slice(1);
-
-  //console.log("keys:", keys);
+  // Get region names from wideData and test it
+  var allKeys = Object.keys(wideData[0]);
+  var keys = allKeys.filter((key) => key !== "TIME_PERIOD");
 
   // Add X axis
   var x = d3
     .scaleLinear()
     .domain([
-      d3.min(dataset, function (d) {
+      d3.min(wideData, function (d) {
         return +d.TIME_PERIOD;
       }),
-      d3.max(dataset, function (d) {
+      d3.max(wideData, function (d) {
         return +d.TIME_PERIOD;
       }),
     ])
@@ -107,18 +137,61 @@ function createVisualization5(data) {
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x).ticks(2));
 
+  //stack the data?
+  var stackedData = d3.stack().offset(d3.stackOffsetSilhouette).keys(keys)(
+    wideData,
+  );
+
   // Add Y axis
   var y = d3
     .scaleLinear()
     .domain([
-      0,
-      d3.max(dataset, function (d) {
-        return +d.TIME_PERIOD;
-      }),
+      // Loop over each row's points to get the lowest and highest values
+      d3.min(stackedData, (layer) => d3.min(layer, (d) => d[0])),
+      d3.max(stackedData, (layer) => d3.max(layer, (d) => d[1])),
     ])
-
     .range([height, 0]);
   svg.append("g").call(d3.axisLeft(y));
+
+  // color palette
+  var color = d3
+    .scaleOrdinal()
+    .domain(3)
+    .range([
+      "#e41a1c",
+      "#377eb8",
+      "#4daf4a",
+      "#984ea3",
+      "#ff7f00",
+      "#ffff33",
+      "#a65628",
+      "#f781bf",
+    ]);
+
+  // Show the areas
+  var paths = svg
+    .selectAll(".stream-layer")
+    .data(stackedData)
+    .enter()
+    .append("path")
+    .attr("class", "stream-layer")
+    .style("fill", function (d) {
+      return color(d.key);
+    })
+    .attr(
+      "d",
+      d3
+        .area()
+        .x(function (d, i) {
+          return x(d.data.TIME_PERIOD);
+        })
+        .y0(function (d) {
+          return y(d[0]);
+        })
+        .y1(function (d) {
+          return y(d[1]);
+        }),
+    );
 }
 
 window.onload = init;
