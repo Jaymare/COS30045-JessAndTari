@@ -168,8 +168,44 @@ function createVisualization5(data) {
       "#f781bf",
     ]);
 
-  // Show the areas
-  var paths = svg
+  // create a tooltip
+  var Tooltip = svg
+    .append("text")
+    .attr("x", 0)
+    .attr("y", 0)
+    .style("opacity", 0)
+    .style("font-size", 17);
+
+  // Three function that change the tooltip when user hover / move / leave a cell
+  var mouseover = function (d) {
+    Tooltip.style("opacity", 1);
+    d3.selectAll(".stream-layer").style("opacity", 0.2);
+    d3.select(this).style("stroke", "black").style("opacity", 1);
+  };
+  var mousemove = function (d, i) {
+    grp = keys[i];
+    Tooltip.text(grp);
+  };
+  var mouseleave = function (d) {
+    Tooltip.style("opacity", 0);
+    d3.selectAll(".stream-layer").style("opacity", 1).style("stroke", "none");
+  };
+
+  // Area generator
+  var area = d3
+    .area()
+    .x(function (d) {
+      return x(d.data.TIME_PERIOD);
+    })
+    .y0(function (d) {
+      return y(d[0]);
+    })
+    .y1(function (d) {
+      return y(d[1]);
+    });
+
+  // Show the areas with hover effects
+  svg
     .selectAll(".stream-layer")
     .data(stackedData)
     .enter()
@@ -178,20 +214,10 @@ function createVisualization5(data) {
     .style("fill", function (d) {
       return color(d.key);
     })
-    .attr(
-      "d",
-      d3
-        .area()
-        .x(function (d, i) {
-          return x(d.data.TIME_PERIOD);
-        })
-        .y0(function (d) {
-          return y(d[0]);
-        })
-        .y1(function (d) {
-          return y(d[1]);
-        }),
-    );
+    .attr("d", area)
+    .on("mouseover", mouseover)
+    .on("mousemove", mousemove)
+    .on("mouseleave", mouseleave);
 }
 
 window.onload = init;
