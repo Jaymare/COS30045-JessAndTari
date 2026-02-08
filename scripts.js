@@ -99,7 +99,7 @@ function createVisualization5(data) {
   var wideData = longToWide(
     dataset,
     "TIME_PERIOD", // group by year
-    "REF_AREA", // regions become columns
+    "Reference area", // regions become columns
     "OBS_VALUE", // the values
   );
 
@@ -137,6 +137,15 @@ function createVisualization5(data) {
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x).ticks(2));
 
+  // Add X axis label
+  svg
+    .append("text")
+    .attr("text-anchor", "middle")
+    .attr("x", width / 2)
+    .attr("y", height + 35)
+    .text("Year")
+    .style("font-size", "12px");
+
   //stack the data?
   var stackedData = d3.stack().offset(d3.stackOffsetSilhouette).keys(keys)(
     wideData,
@@ -152,6 +161,16 @@ function createVisualization5(data) {
     ])
     .range([height, 0]);
   svg.append("g").call(d3.axisLeft(y));
+
+  // Add Y axis label
+  svg
+    .append("text")
+    .attr("text-anchor", "middle")
+    .attr("transform", "rotate(-90)")
+    .attr("x", -height / 2)
+    .attr("y", -45)
+    .text("Nurses per 10,000 people")
+    .style("font-size", "12px");
 
   // color palette
   var color = d3
@@ -173,6 +192,7 @@ function createVisualization5(data) {
     .append("text")
     .attr("x", 0)
     .attr("y", 0)
+    .attr("class", "label")
     .style("opacity", 0)
     .style("font-size", 17);
 
@@ -183,7 +203,7 @@ function createVisualization5(data) {
     d3.select(this).style("stroke", "black").style("opacity", 1);
   };
   var mousemove = function (d, i) {
-    grp = keys[i];
+    var grp = keys[i];
     Tooltip.text(grp);
   };
   var mouseleave = function (d) {
