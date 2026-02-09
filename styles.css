@@ -50,11 +50,6 @@ body {
   margin-bottom: 40px;
 }
 
-/* #viz5 {
-  width: 40%;
-  margin: 0 auto;
-} */
-
 .label {
   fill: var(--viz5-decor);
   stroke: var(--viz5-decor);
