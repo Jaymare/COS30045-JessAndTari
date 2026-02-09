@@ -1,5 +1,8 @@
 body {
   background-color: #fafaf2;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--viz5-decor);
+  text-align: center;
 }
 
 :root {
@@ -15,7 +18,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Creates two equal-width columns (1fr is a fractional unit) */
   grid-gap: 20px;
-  
 }
 
 #s3 {
@@ -57,4 +59,3 @@ body {
   stroke: var(--viz5-decor);
   font-family: Arial, sans-serif;
 }
-

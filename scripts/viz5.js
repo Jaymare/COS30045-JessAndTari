@@ -1,7 +1,7 @@
 // Viz 5
 function createVisualization5(data) {
   var margin = { top: 50, right: 30, bottom: 40, left: 60 },
-    width = 860 - margin.left - margin.right,
+    width = 800 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
   dataset = data.filter(
@@ -51,7 +51,7 @@ function createVisualization5(data) {
   svg
     .append("g")
     .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x).ticks(2));
+    .call(d3.axisBottom(x).ticks(2).tickFormat(d3.format("d")));
 
   // Add X axis label
   svg
@@ -64,9 +64,7 @@ function createVisualization5(data) {
     .attr("class", "label");
 
   //stack the data?
-  var stackedData = d3.stack().offset(d3.stackOffsetSilhouette).keys(keys)(
-    wideData,
-  );
+  var stackedData = d3.stack().offset(d3.stackOffsetNone).keys(keys)(wideData);
 
   // Add Y axis
   var y = d3
