@@ -15,6 +15,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Creates two equal-width columns (1fr is a fractional unit) */
   grid-gap: 20px;
+  
 }
 
 #s3 {
@@ -23,6 +24,13 @@ body {
   height: 200px;
   margin: 0 auto;
   margin-bottom: 40px;
+  position: absolute;
+  background: #222;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 12px;
+  pointer-events: none;
+  border-radius: 4px;
 }
 
 #s4 {
@@ -49,3 +57,4 @@ body {
   stroke: var(--viz5-decor);
   font-family: Arial, sans-serif;
 }
+
