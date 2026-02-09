@@ -1,8 +1,8 @@
 // Viz 5
 function createVisualization5(data) {
-  var margin = { top: 20, right: 30, bottom: 30, left: 60 },
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+  var margin = { top: 50, right: 30, bottom: 40, left: 60 },
+    width = 860 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
   dataset = data.filter(
     (d) =>
@@ -60,7 +60,8 @@ function createVisualization5(data) {
     .attr("x", width / 2)
     .attr("y", height + 35)
     .text("Year")
-    .style("font-size", "12px");
+    .style("font-size", "12px")
+    .attr("class", "label");
 
   //stack the data?
   var stackedData = d3.stack().offset(d3.stackOffsetSilhouette).keys(keys)(
@@ -85,6 +86,7 @@ function createVisualization5(data) {
     .attr("transform", "rotate(-90)")
     .attr("x", -height / 2)
     .attr("y", -45)
+    .attr("class", "label")
     .text("Nurses per 10,000 people")
     .style("font-size", "12px");
 
@@ -93,24 +95,24 @@ function createVisualization5(data) {
     .scaleOrdinal()
     .domain(3)
     .range([
-      "#e41a1c",
-      "#377eb8",
-      "#4daf4a",
-      "#984ea3",
-      "#ff7f00",
-      "#ffff33",
-      "#a65628",
-      "#f781bf",
+      "#771c31",
+      "#99bdc1",
+      "#2a5654",
+      "#e5d1d1",
+      "#8a9445",
+      "#dbe0e6",
+      "#d5c472",
+      "#c8b2ce",
     ]);
 
   // create a tooltip
   var Tooltip = svg
     .append("text")
-    .attr("x", 0)
+    .attr("x", 20)
     .attr("y", 0)
     .attr("class", "label")
     .style("opacity", 0)
-    .style("font-size", 17);
+    .style("font-size", 20);
 
   // Three function that change the tooltip when user hover / move / leave a cell
   var mouseover = function (d) {

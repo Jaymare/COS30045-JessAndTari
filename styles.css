@@ -1,9 +1,9 @@
-#s1 {
-  background-color: rgb(210, 238, 99);
-  width: 80%;
-  height: 200px;
-  margin: 0 auto;
-  margin-bottom: 40px;
+body {
+  background-color: #fafaf2;
+}
+
+:root {
+  --viz5-decor: #771c31;
 }
 
 #s2 {
@@ -33,9 +33,19 @@
   margin-bottom: 40px;
 }
 
+#s1 {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+/* #viz5 {
+  width: 40%;
+  margin: 0 auto;
+} */
+
 .label {
-  fill: blueviolet;
-  stroke: blueviolet;
+  fill: var(--viz5-decor);
+  stroke: var(--viz5-decor);
   font-family: Arial, sans-serif;
-  font-weight: bold;
 }
