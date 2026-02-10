@@ -114,7 +114,7 @@ function createVisualization5(data) {
 
   // Three function that change the tooltip when user hover / move / leave a cell
   var mouseover = function (d) {
-    Tooltip.style("opacity", 0.8);
+    Tooltip.style("opacity", 1);
     d3.selectAll(".stream-layer").style("opacity", 0.3);
     d3.select(this).style("stroke", "#771c31").style("opacity", 1);
   };
