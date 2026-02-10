@@ -24,10 +24,8 @@ function init() {
 // Jess do:
 // 3 Dot and line chart with lots of metrics on the y axis,
 // number on the x axis, and each country gets a coloured dot
-// 4 Heat map (one of the table ones with lots of little squares)
-// maybe for Australian states over time by each metric
 
-// Viz 1
+// These are placeholders until the visualisations are fully implemented
 function createVisualization1(data) {
   dataset = data;
   // console.log("Viz 1 successfully loaded:", data);
@@ -38,13 +36,6 @@ function createVisualization1(data) {
 function createVisualization2(data) {
   dataset = data;
   // console.log("Viz 2 successfully loaded:", data);
-  ("");
-}
-
-// Viz 3
-function createVisualization3(data) {
-  dataset = data;
-  // console.log("Viz 3 successfully loaded:", data);
   ("");
 }
 

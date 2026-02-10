@@ -74,15 +74,15 @@ function createVisualization4(data) {
 
   svg
     .selectAll("rect")
-    .data(heatmapData) // Bind data
+    .data(heatmapData)
     .enter()
     .append("rect")
-    .attr("x", (d) => x(d.region)) // X position based on region
-    .attr("y", (d) => y(d.measure)) // Y position based on measure
-    .attr("width", x.bandwidth()) // Width of one cell
-    .attr("height", y.bandwidth()) // Height of one cell
-    .style("fill", (d) => colorScale(d.normalizedValue)) // Color based on value
-    .style("stroke", "#fff") // White border
+    .attr("x", (d) => x(d.region))
+    .attr("y", (d) => y(d.measure))
+    .attr("width", x.bandwidth())
+    .attr("height", y.bandwidth())
+    .style("fill", (d) => colorScale(d.normalizedValue))
+    .style("stroke", "#fff")
     .style("stroke-width", 1);
 
   svg
@@ -90,7 +90,7 @@ function createVisualization4(data) {
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x))
     .selectAll("text")
-    .attr("transform", "rotate(-45)") // Rotate labels
+    .attr("transform", "rotate(-45)")
     .style("text-anchor", "end");
 
   svg.append("g").call(d3.axisLeft(y));

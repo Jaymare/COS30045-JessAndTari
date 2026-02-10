@@ -12,6 +12,15 @@ body {
   --page-info: #33771c;
 }
 
+#s1,
+#viz5 {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  color: var(--viz5-decor);
+  stroke: var(--viz5-decor);
+}
+
 #s2 {
   width: 80%;
   margin: 0 auto;
@@ -25,6 +34,7 @@ body {
   color: var(--viz3-decor);
 }
 
+#viz4,
 #s2-right {
   color: var(--viz4-decor);
 }
@@ -40,17 +50,6 @@ body {
   font-size: 12px;
   pointer-events: none;
   border-radius: 4px;
-}
-
-#s1 {
-  width: 80%;
-  margin: 0 auto;
-  margin-bottom: 40px;
-  color: var(--viz5-decor);
-}
-
-#viz4 {
-  color: var(--viz4-decor);
 }
 
 footer {
