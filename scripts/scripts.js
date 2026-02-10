@@ -21,10 +21,6 @@ function init() {
 // 1 Colour map comparing life expectancy by regions
 // 2 Line and area chart of one of the metrics over time in different regions
 
-// Jess do:
-// 3 Dot and line chart with lots of metrics on the y axis,
-// number on the x axis, and each country gets a coloured dot
-
 // These are placeholders until the visualisations are fully implemented
 function createVisualisation1(data) {
   dataset = data;
