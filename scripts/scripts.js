@@ -26,7 +26,6 @@ function init() {
 // number on the x axis, and each country gets a coloured dot
 // 4 Heat map (one of the table ones with lots of little squares)
 // maybe for Australian states over time by each metric
-// 5 A streamgraph of a few metrics in each country over time
 
 // Viz 1
 function createVisualization1(data) {
@@ -49,7 +48,7 @@ function createVisualization3(data) {
   ("");
 }
 
-// Viz 5 helper for data cleanup
+// Helper function for data cleanup
 function longToWide(dataset, groupByKey, categoryKey, valueKey) {
   var wideData = [];
   var groupedData = {};
