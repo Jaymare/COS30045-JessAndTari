@@ -1,5 +1,5 @@
 // Viz 4
-function createVisualization4(data) {
+function createVisualisation4(data) {
   var margin = { top: 40, right: 40, bottom: 100, left: 230 },
     width = 540 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;

@@ -1,3 +1,3 @@
-function createVisualization3(data) {
+function createVisualisation3(data) {
   "";
 }

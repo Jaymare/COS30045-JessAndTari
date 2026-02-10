@@ -10,11 +10,11 @@ function init() {
     return d;
   }).then(function (data) {
     // Create the visualisations
-    createVisualization1(data);
-    createVisualization2(data);
-    createVisualization3(data);
-    createVisualization4(data);
-    createVisualization5(data);
+    createVisualisation1(data);
+    createVisualisation2(data);
+    createVisualisation3(data);
+    createVisualisation4(data);
+    createVisualisation5(data);
   });
 }
 // Tari do:
@@ -26,14 +26,14 @@ function init() {
 // number on the x axis, and each country gets a coloured dot
 
 // These are placeholders until the visualisations are fully implemented
-function createVisualization1(data) {
+function createVisualisation1(data) {
   dataset = data;
   // console.log("Viz 1 successfully loaded:", data);
   ("");
 }
 
 // Viz 2
-function createVisualization2(data) {
+function createVisualisation2(data) {
   dataset = data;
   // console.log("Viz 2 successfully loaded:", data);
   ("");

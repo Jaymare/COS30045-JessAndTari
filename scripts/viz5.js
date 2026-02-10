@@ -1,5 +1,5 @@
 // Viz 5
-function createVisualization5(data) {
+function createVisualisation5(data) {
   var margin = { top: 50, right: 30, bottom: 40, left: 60 },
     width = 800 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
