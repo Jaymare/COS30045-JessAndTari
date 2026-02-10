@@ -6,24 +6,23 @@ body {
 }
 
 :root {
+  --viz4-decor: #084594;
   --viz5-decor: #771c31;
-  --page-info: #2a1c77;
+  --page-info: #33771c;
 }
 
 #s2 {
   width: 80%;
-  height: 400px;
   margin: 0 auto;
   margin-bottom: 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Creates two equal-width columns (1fr is a fractional unit) */
+  grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
 }
 
 #s3 {
   background-color: rgb(154, 118, 212);
   width: 80%;
-  height: 200px;
   margin: 0 auto;
   margin-bottom: 40px;
   position: absolute;
@@ -39,12 +38,15 @@ body {
   width: 80%;
   margin: 0 auto;
   margin-bottom: 40px;
+  color: var(--viz5-decor);
 }
 
-.label {
-  fill: var(--viz5-decor);
-  stroke: var(--viz5-decor);
-  font-family: Arial, sans-serif;
+#viz4 {
+  color: var(--viz4-decor);
+}
+
+#s2 {
+  color: var(--viz4-decor);
 }
 
 footer {
