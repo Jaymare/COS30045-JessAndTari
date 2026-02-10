@@ -6,6 +6,7 @@ body {
 }
 
 :root {
+  --viz3-decor: #ebcd21;
   --viz4-decor: #084594;
   --viz5-decor: #771c31;
   --page-info: #33771c;
@@ -20,8 +21,15 @@ body {
   grid-gap: 20px;
 }
 
+#s2-left {
+  color: var(--viz3-decor);
+}
+
+#s2-right {
+  color: var(--viz4-decor);
+}
+
 #s3 {
-  background-color: rgb(154, 118, 212);
   width: 80%;
   margin: 0 auto;
   margin-bottom: 40px;
@@ -42,10 +50,6 @@ body {
 }
 
 #viz4 {
-  color: var(--viz4-decor);
-}
-
-#s2 {
   color: var(--viz4-decor);
 }
 
