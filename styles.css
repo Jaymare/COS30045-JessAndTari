@@ -1,42 +1,83 @@
+/* DEBUG MODE: Make containers clearly visible */
 #viz1, #viz2, #viz3, #viz4, #viz5 {
     width: 100%;
-    height: 400px; /* MUST HAVE THIS */
-    background: #f8f9fa; /* Light gray background to see the area */
-    border: 1px solid #ddd; /* Optional: helps debugging */
+    height: 400px;
+    background: #f0f8ff; /* Lighter blue for better visibility */
+    border: 2px dashed #ff6b6b; /* RED DASHED for debugging */
     margin: 15px 0;
+    border-radius: 4px;
+    position: relative; /* For overlay text */
+}
+
+/* Debug text overlay - shows if container exists */
+#viz1::before, #viz2::before, #viz3::before, #viz4::before, #viz5::before {
+    content: "Waiting for D3 visualization...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #666;
+    font-size: 14px;
+    z-index: 1;
+}
+
+/* When SVG is added, hide debug text */
+#viz1 svg ~ ::before,
+#viz2 svg ~ ::before,
+#viz3 svg ~ ::before,
+#viz4 svg ~ ::before,
+#viz5 svg ~ ::before {
+    display: none;
+}
+
+/* Ensure SVG fills container */
+#viz1 svg, #viz2 svg, #viz3 svg, #viz4 svg, #viz5 svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: rgba(0, 100, 255, 0.05); /* Light blue to see SVG area */
     border-radius: 4px;
 }
 
-/* Makes #s2-left and #s2-right appear side-by-side */
+/* Two-column layout */
 #s2 {
     display: flex;
     gap: 30px;
     margin: 40px 0;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    background: #fafafa;
 }
 
 #s2-left, #s2-right {
-    flex: 1; /* Each takes half the width */
+    flex: 1;
+    padding: 15px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 /* Basic spacing */
 #s1, #s3, #s4 {
     margin: 40px 0;
     padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background: #fafafa;
 }
 
 .viz5 {
     margin-top: 15px;
+    font-style: italic;
+    color: #555;
 }
 
-footer {
-    width: 80%;
-    margin: 40px auto 0;
-    text-align: center;
-    overflow: auto;
+/* D3 chart elements - ensure they're visible */
+.line {
+    stroke-width: 2;
 }
 
-footer div {
-    float: left;
-    width: 45%;
-    margin: 0 2.5%;
+.point {
+    stroke: white;
+    stroke-width: 1.5;
 }
