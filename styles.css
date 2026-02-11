@@ -1,66 +1,42 @@
-body {
-  background-color: #fafaf2;
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--page-info);
-  text-align: center;
+#viz1, #viz2, #viz3, #viz4, #viz5 {
+    width: 100%;
+    height: 400px; /* MUST HAVE THIS */
+    background: #f8f9fa; /* Light gray background to see the area */
+    border: 1px solid #ddd; /* Optional: helps debugging */
+    margin: 15px 0;
+    border-radius: 4px;
 }
 
-:root {
-  --viz3-decor: #ebcd21;
-  --viz4-decor: #084594;
-  --viz5-decor: #771c31;
-  --page-info: #33771c;
-}
-
-#s1,
-#viz5 {
-  width: 80%;
-  margin: 0 auto;
-  margin-bottom: 40px;
-  color: var(--viz5-decor);
-  stroke: var(--viz5-decor);
-}
-
+/* Makes #s2-left and #s2-right appear side-by-side */
 #s2 {
-  width: 80%;
-  margin: 0 auto;
-  margin-bottom: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+    display: flex;
+    gap: 30px;
+    margin: 40px 0;
 }
 
-#s2-left {
-  color: var(--viz3-decor);
+#s2-left, #s2-right {
+    flex: 1; /* Each takes half the width */
 }
 
-#viz4,
-#s2-right {
-  color: var(--viz4-decor);
+/* Basic spacing */
+#s1, #s3, #s4 {
+    margin: 40px 0;
+    padding: 20px;
 }
 
-#s3 {
-  width: 80%;
-  margin: 0 auto;
-  margin-bottom: 40px;
-  position: absolute;
-  background: #222;
-  color: #fff;
-  padding: 6px 10px;
-  font-size: 12px;
-  pointer-events: none;
-  border-radius: 4px;
+.viz5 {
+    margin-top: 15px;
 }
 
 footer {
-  width: 80%;
-  margin: 40px auto 0;
-  text-align: center;
-  overflow: auto;
+    width: 80%;
+    margin: 40px auto 0;
+    text-align: center;
+    overflow: auto;
 }
 
 footer div {
-  float: left;
-  width: 45%;
-  margin: 0 2.5%;
+    float: left;
+    width: 45%;
+    margin: 0 2.5%;
 }
