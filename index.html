@@ -9,62 +9,58 @@
     <meta name="author" content="Tarimobowei Saiyou Inaowei" />
     <title>D3 visualisation</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="scripts/scripts.js"></script>
-    <script src="scripts/viz1.js"></script>
-    <script src="scripts/viz2.js"></script>
-    <script src="scripts/viz3.js"></script>
-    <script src="scripts/viz4.js"></script>
-    <script src="scripts/viz5.js"></script>
-
 </head>
 
 <body>
     <h1>Assignment 3C: Website and visualisation</h1>
     <h3>Data in this dataset: Health statistics - Regions</h3>
-    <div id="s1">
-        <div id="viz5">
-        </div>
-        <h4 class="viz5">Stacked area graph</h4>
-        <p class="viz5">This graph demonstrates the number of nurses, in each state or territory of Australia, over
-            time. </p>
 
-    </div>
-    <div id="s2">
-        <div id="s2-left">
-            <h4>Title</h4>
-            <div id="viz3">
-
-            </div>
-            <h4>Graph type</h4>
-            <p>Description</p>
-        </div>
-        <div id="s2-right">
-            <h4>How Australian sates and territories compared in 2021</h4>
-            <div id="viz4">
-            </div>
-            <h4>Heatmap</h4>
-            <p>This graph demonstrates the ordered of each state or territories ranking for each health metric.</p>
-        </div>
-    </div>
-
+    <!-- 1. VISUALIZATION CONTAINERS FIRST -->
 
     <div id="s3">
         <h4>Title viz 1</h4>
-        <div id="viz1">
-
-        </div>
+        <div id="viz1"></div>
         <h4>Graph type</h4>
         <p>Description</p>
     </div>
+    
     <div id="s4">
         <h4>Title viz 2</h4>
-        <div id="viz2">
+        <div id="viz2"></div>
 
-        </div>
         <h4>Line and area chart</h4>
         <p> Active physicians over time in different regions</p>
     </div>
+    
+    <div id="s2">
+    <!-- LEFT COLUMN -->
+        <div id="s2-left">
+            <h4>Title</h4>
+            <div id="viz3"></div>
+            <h4>Graph type</h4>
+            <p>Description</p> 
+        </div>
+    
+    <!-- RIGHT COLUMN -->
+        <div id="s2-right">
+            <h4>How Australian states and territories compared in 2021</h4>
+            <div id="viz4"></div>
+            <h4>Heatmap</h4>
+            <p>This graph demonstrates the order of each state or territory's ranking for each health metric.</p>
+        </div>
+    </div> <!-- This closes #s2 AFTER both columns -->
+
+
+   
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <script src="scripts/scripts.js"></script> 
+    <script src="scripts/viz1.js"></script>
+    <script src="scripts/viz2.js"></script>
+    <script src="scripts/viz3.js"></script>
+    <script src="scripts/viz4.js"></script>
+    <script src="scripts/viz5.js"></script>
+    
     <footer>
         <div>Student name: Jessica Lenehan <br>
             Student number: 105630965 <br>
@@ -77,9 +73,12 @@
     </footer>
 
 
+    
+
 </body>
 
 
 
 </html>
+
 
