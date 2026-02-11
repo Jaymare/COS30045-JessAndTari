@@ -1,5 +1,5 @@
 function createPhysiciansChart(containerId, physiciansData) {
-    const container = d3.select(containerId);
+    const container = d3.select(#viz2);
     const containerWidth = container.node().getBoundingClientRect().width;
     
     const margin = { top: 50, right: 200, bottom: 70, left: 80 };
